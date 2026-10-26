@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it and the relevant paper(s) below."
+title: "phd-gps-toolkit: analysis tools for STATSports GNSS data"
+authors:
+  - family-names: McGleenan
+    given-names: Eamon
+    affiliation: "Queen's University Belfast"
+license: MIT
+repository-code: "https://github.com/emcgleenan23/phd-gps-toolkit"
+version: 1.0.0
+references:
+  - type: article
+    title: "Ballistic power: GPS-derived measurements suitable for the real-time monitoring of neuromuscular fatigue during repeated sprints"
+    authors:
+      - {family-names: McGleenan, given-names: E.}
+      - {family-names: Grant, given-names: S.}
+      - {family-names: McFetridge, given-names: L.M.}
+      - {family-names: Brown, given-names: J.C.J.}
+      - {family-names: Shaw, given-names: J.W.}
+      - {family-names: de Melo Malaquias, given-names: T.}
+      - {family-names: Montgomery, given-names: R.}
+      - {family-names: Jess, given-names: D.B.}
+    journal: "International Journal of Sports Science & Coaching"
+    year: 2026
+    doi: 10.1177/17479541251413077
+  - type: article
+    title: "In-situ PFv profiling in sub-elite Gaelic football: validation, comparison with isolated sprints, minimum data load requirements, and exploring \"real-time\" monitoring potential"
+    authors:
+      - {family-names: McGleenan, given-names: E.}
+      - {family-names: Grant, given-names: S.}
+      - {family-names: McFetridge, given-names: L.M.}
+      - {family-names: Brown, given-names: J.C.J.}
+      - {family-names: Hawkins, given-names: R.}
+      - {family-names: de Melo Malaquias, given-names: T.}
+      - {family-names: Montgomery, given-names: R.}
+      - {family-names: McCann, given-names: R.}
+      - {family-names: Jess, given-names: D.B.}
+    journal: "International Journal of Sports Science & Coaching"
+    year: 2026
+    doi: 10.1177/17479541261468202
