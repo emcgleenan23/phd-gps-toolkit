@@ -1,7 +1,21 @@
 # Match running demands across seasons
 
-Code for the three-season study of match running demands in sub-elite Gaelic
-football (manuscript under review).
+Code for McGleenan et al., *Match running demands in club Gaelic football
+across three seasons spanning rule amendments and promotion: a single-club GNSS
+case study* (manuscript under review).
+
+## What the study asks
+
+How did match running demands change from one season to the next when the
+rules changed (2024 to 2025, same playing level) and when the club was
+promoted (2025 to 2026, same rules)? Demands are described with fixed
+(absolute) speed thresholds and with thresholds individualised to each
+player's maximal seasonal speed, by squad and by positional line (inside
+defenders, middle eight, inside forwards), alongside acceleration profiles,
+the curvature of high-speed efforts and the most demanding passages of play.
+
+The design is observational: season contrasts describe what changed, not
+what caused it.
 
 ## Inputs
 

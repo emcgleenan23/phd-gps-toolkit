@@ -13,7 +13,7 @@ generator creates synthetic files so everything can be tried straight away.
 |---|---|---|
 | Ballistic power (McGleenan et al., 2026a) | Force-velocity metrics from isolated maximal sprints, and how they change with fatigue across a repeated-sprint test | [`studies/ballistic_power`](studies/ballistic_power) |
 | In-situ PFv profiling (McGleenan et al., 2026b) | Acceleration-speed / force-velocity profiles from ordinary training and match data, how much data a profile needs, and how profiles change within a match | [`studies/insitu_pfv`](studies/insitu_pfv) |
-| Match running demands (McGleenan et al., under review) | High-speed running, sprinting, accelerations and curvilinear running across seasons, with absolute and individualised thresholds, mixed-effects season contrasts and worst-case-scenario windows | [`studies/running_demands`](studies/running_demands) |
+| Match running demands (McGleenan et al., under review) | How match demands changed across three seasons spanning rule amendments and promotion: distance, high-speed running, sprinting, accelerations and curvilinear running, with absolute and individualised thresholds, mixed-effects season contrasts and worst-case-scenario windows | [`studies/running_demands`](studies/running_demands) |
 
 ## Quick start
 
@@ -32,7 +32,9 @@ python 01_build_cache.py
 python 02_pooled_profiles.py
 ```
 
-Each study folder has its own README with the full sequence of scripts.
+Each study folder has its own README with the full sequence of scripts. The
+demo data cover all three studies: one repeated-sprint session, a block of
+training and matches, and three short seasons of league matches with positions.
 
 ## Using your own data
 
@@ -83,6 +85,10 @@ tests/                  python -m pytest
   training and match data. Traces are filtered within continuous stretches so
   smoothing never bridges a GNSS drop-out.
 * Acceleration by central differences of filtered speed (`numpy.gradient`).
+* Running efforts (running-demands study): an effort starts at the band's
+  entry speed and ends when speed drops below 90 % of it, with a 1-s minimum
+  duration; acceleration events are >= 1 m/s² for >= 0.5 s and are zoned by
+  their peak.
 
 The comments in each module explain why. Filter settings should ideally be
 chosen for your own device (e.g. by residual analysis) and always reported.
@@ -110,8 +116,11 @@ If you use this code, please cite the relevant paper(s):
   "real-time" monitoring potential. *International Journal of Sports Science
   & Coaching*. https://doi.org/10.1177/17479541261468202
 
-* McGleenan, E. et al. Match running demands in sub-elite Gaelic football
-  across three seasons (manuscript under review; citation to follow).
+* McGleenan, E., Harvey, C., Grant, S.D.T., McFetridge, L.M., Brown, J.C.J.,
+  de Melo Malaquias, T., Montgomery, R., McGahan, J. & Jess, D.B. Match
+  running demands in club Gaelic football across three seasons spanning rule
+  amendments and promotion: a single-club GNSS case study. *Manuscript under
+  review* (full reference to follow).
 
 `CITATION.cff` lets GitHub produce the citation for you ("Cite this repository").
 
