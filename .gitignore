@@ -9,7 +9,6 @@ __pycache__/
 .venv/
 .DS_Store
 
-# Running-demands study: kept private until the paper is accepted.
-# Delete the line below (and move studies/running_demands/NOTES.md into
-# docs/paper_vs_toolkit.md) when it is published.
-studies/running_demands/
+
+# Working copies of raw exports
+studies/*/raw_extract/

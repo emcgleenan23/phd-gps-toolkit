@@ -16,6 +16,9 @@ The original analysis code used a **1st-order** filter for the ballistic-power
 study (2 Hz) and the running-demands study (1 Hz). The in-situ PFv study used
 2nd order (1 Hz), as described.
 
+The toolkit also splits each trace at GNSS drop-outs longer than 0.5 s and
+filters each continuous piece separately, so smoothing never bridges a gap.
+
 *Original behaviour:* `--filter-order 1` (ballistic power).
 
 ## Ballistic power (McGleenan et al., 2026a)
@@ -84,3 +87,39 @@ without re-selecting (several hundred points) and requires R² ≥ 0.90.
 
 ### Reported SDs
 "Mean ± SD" in the paper uses the population SD (`numpy.std`, ddof = 0).
+
+## Match running demands (McGleenan et al., under review)
+
+The toolkit applies the method described in the manuscript in one consistent
+way. The original analysis combined two code bases (an older club pipeline and
+newer study scripts), which differ from the manuscript text in the places below.
+
+### Match table used for the season models
+The original season contrasts were fitted to match metrics produced by the
+older club pipeline, which:
+* summed the speed of every sample above the HSR threshold, without the 90 %
+  exit or the 1-s minimum effort duration;
+* applied the sprint hysteresis to raw (unfiltered) speed, with no minimum
+  duration;
+* computed absolute near-maximal distance without hysteresis or a minimum duration;
+* counted "high" accelerations and decelerations at ±2.78 m/s², not the
+  ≥ 3.0 m/s² band, and added one event for every 0.5 s spent above the
+  threshold (so a long acceleration counted several times);
+* took maximum speed from raw speed.
+
+The toolkit computes every match metric with the method in the manuscript:
+efforts on filtered speed, 90 % exit, 1-s minimum, distance by trapezoidal
+integration of filtered speed; acceleration events ≥ 1 m/s² for ≥ 0.5 s,
+zoned by their peak (1-2, 2-3, ≥ 3 m/s²); maximum speed from filtered speed.
+
+### Effort, acceleration and curvilinear analyses
+* Halves are cropped to 30 min in every analysis (originally only in the
+  match table).
+* Curvilinear acceleration events use the "high" zone (≥ 3.0 m/s²) rather than
+  ±2.78 m/s².
+
+### Statistics
+* Hedges' g intervals are 95 % bootstrap intervals, as stated in the
+  manuscript (the original code used 90 %).
+* Opponent strength in the match-level model is scaled per SD of opponent
+  points across player-match rows, as in the original analysis.

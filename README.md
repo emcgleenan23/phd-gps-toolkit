@@ -13,9 +13,7 @@ generator creates synthetic files so everything can be tried straight away.
 |---|---|---|
 | Ballistic power (McGleenan et al., 2026a) | Force-velocity metrics from isolated maximal sprints, and how they change with fatigue across a repeated-sprint test | [`studies/ballistic_power`](studies/ballistic_power) |
 | In-situ PFv profiling (McGleenan et al., 2026b) | Acceleration-speed / force-velocity profiles from ordinary training and match data, how much data a profile needs, and how profiles change within a match | [`studies/insitu_pfv`](studies/insitu_pfv) |
-
-A third study (match running demands across seasons) will be added when it is
-published.
+| Match running demands (McGleenan et al., under review) | High-speed running, sprinting, accelerations and curvilinear running across seasons, with absolute and individualised thresholds, mixed-effects season contrasts and worst-case-scenario windows | [`studies/running_demands`](studies/running_demands) |
 
 ## Quick start
 
@@ -46,6 +44,10 @@ The scripts expect STATSports **raw data (extended)** CSV exports:
   `Drill Title` (plus `Lat`, `Lon` for curvilinear analyses);
 * drills named `1st Half` / `2nd Half` for matches, `Entire Session` for
   training and `Rep 1` ... `Rep 15` for a repeated-sprint test.
+
+The running-demands study also needs two small tables you write yourself:
+a fixture list (date, competition, venue, opponent league points) and a
+player-position list. Templates are produced with the demo data.
 
 Point a study at your folder with `--raw /path/to/exports` (or the
 environment variable named in the study's `common.py`). Use `--anonymise`
@@ -107,6 +109,9 @@ If you use this code, please cite the relevant paper(s):
   with isolated sprints, minimum data load requirements, and exploring
   "real-time" monitoring potential. *International Journal of Sports Science
   & Coaching*. https://doi.org/10.1177/17479541261468202
+
+* McGleenan, E. et al. Match running demands in sub-elite Gaelic football
+  across three seasons (manuscript under review; citation to follow).
 
 `CITATION.cff` lets GitHub produce the citation for you ("Cite this repository").
 
